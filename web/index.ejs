@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+		/>
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>Avto Kran</title>
+		<link rel="icon" type="image/gif" href="/project/Image/logo.svg" />
+		<link rel="stylesheet" href="/project/Style/style.css" />
+		<script src="/project/Plugins/tailwind/tailwind.js"></script>
+		<script src="/project/Plugins/tailwind/tailwind.config.js"></script>
+		<link rel="stylesheet" href="/project/Plugins/aos/aos.css" />
+	</head>
+	<body class="overflow-x-hidden">
+		<div class="wrapper">
+			<nav
+				class="py-2 md:py-3 bg-black/40 fixed top-0 left-0 w-full z-50 text-white duration-300 min-h-20 flex justify-center"
+			>
+				<div class="container flex items-center justify-between">
+					<a href="/">
+						<span class="text-2xl lg:text-4xl">LOGO</span>
+						<img
+							src=""
+							class="w-full h-full object-contain hidden"
+							alt="Image logo"
+						/>
+					</a>
+					<%footer.forEach(item => {%>
+						<a
+						href="tel: <%=item.number%>"
+						class="font-gilroy btn font-bold md:uppercase flex text-sm items-center md:gap-4 gap-1 text-white bg-yellow/40 py-1.5 px-3 md:px-5 md:py-3 hover:bg-yellow duration-300"
+					>
+						<img
+							class="md:w-5 md:h-5 w-4 h-4 text-white"
+							src="<%=staticFiles.call%>"
+							alt="Phone icon "
+						/>
+						<span class="leading-[-1px] md:pt-[1px]">свяжитесь с нами</span>
+					</a>
+				<%})%>
+				
+				</div>
+			</nav>
+			<header
+				class="h-[70vh] md:h-[80vh] relative overflow-hidden flex flex-col justify-center text-white"
+			>
+				<%main.forEach(item => {%>
+				<div class="container relative z-10">
+					<h1
+						class="font-RfDewi text-center text-3xl md:text-[40px] lg:text-5xl xl:text-[60px] uppercase font-black md:text-start !leading-[1.4] max-w-[500px] lg:max-w-[650px]"
+						data-aos="fade-up"
+					>
+						<%=item.text%>
+					</h1>
+				</div>
+				<div
+					class="w-full h-full bg-black/50 absolute top-0 left-0 z-[6]"
+				></div>
+				<img
+					class="w-full h-full absolute top-0 left-0 z-[5] object-cover"
+					src="<%=item.image%>"
+					alt="header image"
+				/>
+				<%})%>
+			</header>
+
+			<section class="relative pt-[30px] md:pt-[70px] lg:pt-[100px] bg-light">
+				<div class="container flex flex-col items-center">
+					<h2
+						class="section-title"
+						data-aos="fade-up"
+						data-aos-anchor-placement="bottom-bottom"
+					>
+						УСЛУГИ И АРЕНДА СПЕЦТЕХНИКИ В ТАШКЕНТЕ
+					</h2>
+
+					<div class="grid grid-cols-2 lg:grid-cols-3 gap-3 md:gap-7 lg:gap-10">
+                        <% card.forEach(item => { %>
+                          <a
+                            href="/info/<%= item._id %>"
+                            class="aspect-[11/10] relative group overflow-hidden text-white"
+                            data-aos="fade-up"
+                            data-aos-delay="50"
+                          >
+                            <img
+                              src="/<%= item.image %>"
+                              class="w-full h-full object-cover"
+                              alt="Product Image"
+                            />
+                            <div
+                              class="w-full h-full absolute top-0 left-0 z-[5] bg-black/00 group-hover:bg-black/50 duration-300"
+                            ></div>
+                            <div
+                              class="w-full h-[100%] absolute translate-y-7 lg:translate-y-10 duration-300 group-hover:translate-y-0 top-0 left-0 flex flex-col items-center justify-end gap-2.5 p-1 md:p-2 lg:pb-4 z-10"
+                            >
+                              <h3 class="font-gilroy md:text-lg lg:text-xl font-medium">
+                                <%= item.name %>
+                              </h3>
+                              <div class="flex items-center gap-1">
+                                <span class="font-gilroy font-light text-sm md:text-base">Подробнее</span>
+                                <i
+                                  data-lucide="move-right"
+                                  class="w-5 h-5 group-hover:translate-x-3 duration-300 delay-200"
+                                ></i>
+                              </div>
+                            </div>
+                          </a>
+                        <% }) %>
+                      </div>
+                      
+				</div>
+			</section>
+
+			<section class="section relative bg-light">
+				<div class="container flex flex-col items-center relative z-10">
+					<%about.forEach(item => {%>
+					<h2 class="section-title" data-aos="fade-up" data-aos-delay="0">
+						<%=item.title%>
+					</h2>
+					<p
+						class="section-text pb-2 md:pb-5"
+						data-aos="fade-up"
+						data-aos-delay="150"
+					>
+						<%=item.description%>
+					</p>
+
+					<%})%>
+				</div>
+				<img
+					class="h-full w-full lg:w-[80%] absolute top-0 left-[-30%] bottom-0 z-[5] object-contain"
+					src="<%=staticFiles.bg%>"
+					alt="Bg Image"
+				/>
+			</section>
+			<% footer.forEach(item => { %>
+			<footer class="relative py-5 md:py-7 lg:py-11">
+				<div
+					class="container flex flex-col items-center gap-3 md:gap-4 relative z-10 text-white"
+				>
+					<h2
+						class="section-title !text-white !pb-0"
+						data-aos="fade-up"
+						data-aos-anchor-placement="center-bottom"
+					>
+						Свяжитесь с нами
+					</h2>
+					<div
+						class="flex items-center gap-3 lg:gap-5"
+						data-aos="fade-up"
+						data-aos-anchor-placement="center-bottom"
+					>
+						<img
+							class="w-7 h-7 max-md:hidden"
+							src="<%= staticFiles.call%>"
+							alt="Phone Icon"
+						/>
+						<a href="<%= item.number %>" class="block font-gilroy md:text-xl">
+							<%= item.number %>
+						</a>
+						
+					</div>
+					<div
+						class="flex items-center gap-3 lg:gap-5"
+						data-aos="fade-up"
+						data-aos-anchor-placement="center-bottom"
+					>
+						<img
+							class="w-6 h-6 max-md:hidden"
+							src="<%=staticFiles.map%>"
+							alt="Map Icon"
+						/>
+						<p class="block font-gilroy md:text-xl"><%= item.location %></p>
+					</div>
+					<div
+						class="flex items-center gap-3 md:gap-5 lg:gap-8"
+						data-aos="fade-up"
+						data-aos-anchor-placement="center-bottom"
+					>
+						<a href="<%= item.instagram %>" target="_blank">
+							<img
+								class="w-5 aspect-square lg:w-7 duration-300 hover:scale-110"
+								src="<%=staticFiles.instagram%>"
+								alt="Instagram Icon"
+							/>
+						</a>
+						<a href="<%= item.telegram %>" target="_blank">
+							<img
+								class="w-5 aspect-square lg:w-7 duration-300 hover:scale-110"
+								src="<%=staticFiles.telegram%>"
+								alt="Telegram Icon"
+							/>
+						</a>
+						<a href="<%= item.facebook %>" target="_blank">
+							<img
+								class="w-5 aspect-square lg:w-7 duration-300 hover:scale-110"
+								src="<%=staticFiles.facebook%>"
+								alt="Facebook Icon"
+							/>
+						</a>
+					</div>
+				</div>
+				<img
+					class="w-full h-full object-cover absolute top-0 left-0 bottom-0 z-[5]"
+					src="<%=staticFiles.footer%>"
+					alt="Footer Bg"
+				/>
+			</footer>
+			<% }) %>
+		</div>
+		<script src="./project/Plugins/aos/aos.js"></script>
+		<script>
+			AOS.init()
+		</script>
+		<script src="./project/Plugins/lucide/lucide.js"></script>
+		<script>
+			lucide.createIcons()
+		</script>
+		<script>
+			const nav = document.querySelector('nav')
+			window.addEventListener('scroll', () => {
+				if (window.scrollY > 0) {
+					nav.classList.add('nav-scroll')
+				} else {
+					nav.classList.remove('nav-scroll')
+				}
+			})
+		</script>
+	</body>
+</html>

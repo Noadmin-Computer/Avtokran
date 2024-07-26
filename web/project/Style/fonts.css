@@ -1,0 +1,26 @@
+@font-face {
+    font-family: "gilroy";
+    src: url("../Fonts/gilroy/Gilroy-Bold.ttf");
+    font-weight: 700;
+}
+@font-face {
+    font-family: "gilroy";
+    src: url("../Fonts/gilroy/Gilroy-Medium.ttf");
+    font-weight: 500;
+}
+@font-face {
+    font-family: "gilroy";
+    src: url("../Fonts/gilroy/Gilroy-Regular.ttf");
+    font-weight: 400;
+}
+@font-face {
+    font-family: "RfDewi";
+    src: url("../Fonts/rfDewi/RFDewi-Bold.ttf");
+    font-weight: 700;
+}
+@font-face {
+    font-family: "RfDewi";
+    src: url("../Fonts/rfDewi/RFDewi-Bold.ttf");
+    font-weight: 900;
+}
+

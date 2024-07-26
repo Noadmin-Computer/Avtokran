@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+		/>
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>Avto Kran</title>
+		<link rel="icon" type="image/gif" href="/Project/Image/logo.svg" />
+		<link rel="stylesheet" href="/project/Style/style.css" />
+		<script src="/project/Plugins/tailwind/tailwind.js"></script>
+		<script src="/project/Plugins/tailwind/tailwind.config.js"></script>
+		<link rel="stylesheet" href="/project/Plugins/aos/aos.css" />
+	</head>
+	<body class="overflow-x-hidden">
+		<div class="wrapper">
+			<nav
+				class="py-2 md:py-3 bg-white fixed top-0 left-0 w-full z-50 text-black duration-300 border-b min-h-20 flex justify-center"
+			>
+				<div class="container flex items-center justify-between">
+					<a href="/">
+						<span class="text-2xl lg:text-4xl">LOGO</span>
+						<img
+							src=""
+							class="w-full h-full object-contain hidden"
+							alt="Image logo"
+						/>
+					</a>
+					<a
+						href="tel:998901234567"
+						class="font-gilroy btn font-bold md:uppercase flex text-sm items-center md:gap-4 gap-1 text-white bg-yellow py-1.5 px-3 md:px-5 md:py-3 duration-300"
+					>
+						<img
+							class="md:w-5 md:h-5 w-4 h-4 text-white"
+							src="<%=staticFiles.call%>"
+							alt="Phone icon "
+						/>
+						<span class="leading-[-1px] md:pt-[1px]">свяжитесь с нами</span>
+					</a>
+				</div>
+			</nav>
+			<section class="bg-light section mt-16">
+				<div class="container flex flex-col items-center">
+					<h2 class="section-title" data-aos="fade-up">УСЛУГИ АВТОВЫШКИ</h2>
+					<div
+						class="grid grid-cols-1 gap-3 md:grid-cols-2 lg:grid-cols-3 lg:gap-6 xl:gap-10"
+					>
+						<%info.forEach(item => {%>
+						<div
+							class="w-full border-[5px] border-[#eee] pt-2 lg:pt-4 bg-white duration-300 hover:shadow-xl"
+							data-aos="fade-up"
+							data-aos-delay="50"
+						>
+							<div class="w-full aspect-[4/3]">
+								<img
+									src="/project/Image/<%=item.image%>"
+									class="w-full h-full object-cover"
+									alt="Service Image"
+								/>
+							</div>
+							<div class="pt-2.5 px-1.5 md:px-5 xl:px-7">
+								<h3
+									class="font-gilroy font-bold text-dark text-sm md:text-base pb-3 md:pb-5 xl:text-xl line-clamp-2"
+								>
+									<%=item.name%>
+								</h3>
+								<div class="w-full space-y-2.5 lg:space-y-3.5">
+									<div
+										class="flex whitespace-nowrap items-end !leading-[1.1] w-full font-gilroy xl:font-medium text-sm md:text-base xl:text-lg text-dark"
+									>
+										<p class="">Цена за 1 час</p>
+										<div
+											class="w-full border-b border-[#CACACA] border-dashed"
+										></div>
+										<p><%=item.price_hour%></p>
+									</div>
+									<div
+										class="flex whitespace-nowrap items-end !leading-[1.1] w-full font-gilroy xl:font-medium text-sm md:text-base xl:text-lg text-dark"
+									>
+										<p class="">Минимальный заказ</p>
+										<div
+											class="w-full border-b border-[#CACACA] border-dashed"
+										></div>
+										<p><%=item.minimum%></p>
+									</div>
+									<div
+										class="flex whitespace-nowrap items-end !leading-[1.1] w-full font-gilroy xl:font-medium text-sm md:text-base xl:text-lg text-dark"
+									>
+										<p class="">Цена за смену</p>
+										<div
+											class="w-full border-b border-[#CACACA] border-dashed"
+										></div>
+										<p><%=item.price_shift%></p>
+									</div>
+								</div>
+							</div>
+							<a
+								href="tel:+998 99 123-45-67"
+								class="w-full hover:bg-white duration-300 hover:text-yellow border-2 border-yellow text-center block bg-yellow text-white py-2 font-gilroy md:text-lg xl:text-xl mt-5 lg:mt-7 xl:mt-10 xl:py-3"
+							>
+								Cвяжитесь с нами
+							</a>
+						</div>
+						<%})%>
+					</div>
+				</div>
+			</section>
+			<% footer.forEach(item => { %>
+				<footer class="relative py-5 md:py-7 lg:py-11">
+					<div
+						class="container flex flex-col items-center gap-3 md:gap-4 relative z-10 text-white"
+					>
+						<h2
+							class="section-title !text-white !pb-0"
+							data-aos="fade-up"
+							data-aos-anchor-placement="center-bottom"
+						>
+							Свяжитесь с нами
+						</h2>
+						<div
+							class="flex items-center gap-3 lg:gap-5"
+							data-aos="fade-up"
+							data-aos-anchor-placement="center-bottom"
+						>
+							<img
+								class="w-7 h-7 max-md:hidden"
+								src="/project/Image/call.svg"
+								alt="Phone Icon"
+							/>
+							<a href="<%= item.number %>" class="block font-gilroy md:text-xl">
+								<%= item.number %>
+							</a>
+							
+						</div>
+						<div
+							class="flex items-center gap-3 lg:gap-5"
+							data-aos="fade-up"
+							data-aos-anchor-placement="center-bottom"
+						>
+							<img
+								class="w-6 h-6 max-md:hidden"
+								src="<%=staticFiles.map%>"
+								alt="Map Icon"
+							/>
+							<p class="block font-gilroy md:text-xl"><%= item.location %></p>
+						</div>
+						<div
+							class="flex items-center gap-3 md:gap-5 lg:gap-8"
+							data-aos="fade-up"
+							data-aos-anchor-placement="center-bottom"
+						>
+							<a href="<%= item.instagram %>" target="_blank">
+								<img
+									class="w-5 aspect-square lg:w-7 duration-300 hover:scale-110"
+									src="<%= staticFiles.instagram%>"
+									alt="Instagram Icon"
+								/>
+							</a>
+							<a href="<%= item.telegram %>" target="_blank">
+								<img
+									class="w-5 aspect-square lg:w-7 duration-300 hover:scale-110"
+									src="<%= staticFiles.telegram%>"
+									alt="Telegram Icon"
+								/>
+							</a>
+							<a href="<%= item.facebook %>" target="_blank">
+								<img
+									class="w-5 aspect-square lg:w-7 duration-300 hover:scale-110"
+									src="<%= staticFiles.facebook%>"
+									alt="Facebook Icon"
+								/>
+							</a>
+						</div>
+					</div>
+					<img
+						class="w-full h-full object-cover absolute top-0 left-0 bottom-0 z-[5]"
+						src="<%= staticFiles.footer%>"
+						alt="Footer Bg"
+					/>
+				</footer>
+				<% }) %>
+		</div>
+		<script src="/project/Plugins/aos/aos.js"></script>
+		<script>
+			AOS.init()
+		</script>
+		<script src="/project/Plugins/lucide/lucide.js"></script>
+		<script>
+			lucide.createIcons()
+		</script>
+	</body>
+</html>
